@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Choices.</title>
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="start">
+    <div id="title">
+      <h1>Choices</h1>
+      <button onclick="nameSel()">Start</button>
+    </div>
+    <canvas></canvas>
+  </div>
+  
+  <div id="progressBar">
+    <h2 class="load">loading...</h2>
+    <div id="Lbar"></div>
+  </div>
+
+  <div id="gameHud"></div>
+
+  <div id="park">
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices">Go to Home</button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices">Stay at Park</button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices">Go to Bar</button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bedroom">
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bar">
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bus">
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices">Stay near Bus</button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices">Go through Woods</button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices">Go on Trail</button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="woods">
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices">Run!!</button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices">Hide!!</button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="gravel">
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="map">
+    <div class="diningH" id="mapLocation">Dining hall</div>
+    <div class="cabins" id="mapLocation">Cabins</div>
+    <div class="field" id="mapLocation">Field Area</div>
+    <div class="amphitheater" id="mapLocation">Amphitheater</div>
+    <div class="musicR" id="mapLocation">Music Room</div>
+    <div class="lake" id="mapLocation" >Lake</div>
+    <div class="nures" id="mapLocation">Nures</div>
+    <div class="library" id="mapLocation">library</div>
+    <div id="counselorO">Counselor Office</div>
+  </div>
+
+  <div id="diningA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cabinA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fieldA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="amphitheaterA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person">fff</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="musicA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="lakeA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="nuresA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="libraryA">
+    <div class="map">&lArr;Map</div>
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="pChoices"></button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="counselorA">
+    <div class="container">
+      <div class="row" id="choices">
+        <div class="col-sm-6">
+          <button class="pChoices">Stay here</button>
+        </div>
+        <div class="col-sm-6">
+          <button class="pChoices">Go home</button>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cabinRoom">
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="guestRoom">
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="person"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="text">This is where my text should be.</div>
+          </div>
+          <div class="col-sm-12">
+            <div id="next">next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

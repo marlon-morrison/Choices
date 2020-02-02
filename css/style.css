@@ -1,0 +1,359 @@
+body {
+    margin: 0;
+}
+#title {
+    position: absolute;
+    left: 550px;
+    top: 200px;
+}
+h1 {
+    color: #fff;
+    font-size: 90px;
+    font-family: 'Homemade Apple', cursive;
+    cursor: default;
+}
+h2 {
+    color: #fff;
+}
+#end {
+    position: absolute;
+    top: 321px;
+    font-size: 80px;
+    left: 681px;
+}
+#name {
+    margin: 0;
+    text-align: center;
+    font-size: 19px;
+    background: black;
+    border:none;
+    border-radius: 0%;
+    padding: 2px;
+
+}
+button {
+    color: #fff;
+    margin-left: 137px;
+    font-size: 34px;
+    background: black;
+    border: 2px solid gray;
+    border-radius: 43%;
+    padding: 8px;
+}
+.place {
+    position: absolute;
+    font-size: 50px;
+    color: #fff;
+}
+#text {
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap; 
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end);
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 80% }
+}
+#choices {
+    display: none;
+}
+.pChoices {
+    font-size: 20px;
+    margin-top: 520px;
+    margin-left: 176px;
+    padding: 10px 30px;
+    border: 2px solid #fff;
+    border-radius: 0%;
+}
+#next {
+    text-align: right;
+    color: #fff;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+#next:hover {
+    cursor: default;
+    cursor: pointer;
+}
+#progressBar {
+    background: #000;
+    width: 100%;
+    height: 750px;
+    display: none;
+}
+#Lbar {
+    width: 1%;
+    height: 30px;
+    position: absolute;
+    background: #fff;
+    top: 40%;
+}
+.load{
+    color: #fff;
+    font-family: "Courier";
+    font-size: 40px;
+    margin: 10px 0 0 10px;
+    overflow: hidden;
+    width: 240px;
+    animation: type 3s infinite;
+    position: absolute;
+    left: 45%;
+    top: 30%;
+}
+@keyframes type{ 
+from { width: 0; } 
+} 
+#person {
+    position: absolute;
+    font-size: 35px;
+    color: #fff;
+    top: -75px;
+    border: 2px solid wheat;
+    background: black;
+    opacity: 0.9;
+    padding: 10px;
+
+}
+#bottom { 
+    position: absolute;
+    margin-top: 105px;
+    border: 4px solid #ddd;
+    height: 130px;
+    border-radius: 5%;
+    background-color: #000;
+    opacity: 0.9;
+    bottom: 0;
+    left: 180px;
+}
+#start {
+    background-image: url(/media/title-screen.jpg); 
+}
+#nameSel {
+    position: absolute;
+    left: 650px;
+    top: 400px;
+
+}
+#park {
+    display:none;
+    background-image: url(/media/park.jpg);
+    height: 753px;
+}
+#bedroom {
+    display: none;
+    background-image: url(/media/bedroom.jpg);
+    height: 753px;
+}
+#bar {
+    display: none;
+    background-image: url(/media/bar.jpg);
+    height: 753px;
+}
+#bus {
+    display: none;
+    background-image: url(/media/bus.jpg);
+    height: 753px;
+}
+#woods {
+    display: none;
+    background-image: url(/media/woods.jpg);
+    height: 753px;
+}
+#gravel {
+    display: none;
+    background-image: url(/media/gravel-path.jpg);
+    height: 753px;
+}
+#map {
+    display: none;
+    background-image: url(/media/transp-map.jpg);
+    height: 753px;
+}
+.map {
+    border: 2px solid #fff;
+    position: absolute;
+    font-size: 35px;
+    color: #fff;
+    background: black;
+    opacity: 0.9;
+
+}
+#diningA {
+    display: none;
+    background-image: url(/media/dining.jpg);
+    height: 753px;
+}
+#cabinA {
+    display: none;
+    background-image: url(/media/cabins.jpg);
+    height: 753px;
+}
+#fieldA {
+    display: none;
+    background-image: url(/media/field.jpg);
+    height: 753px;
+}
+#amphitheaterA {
+    display: none;
+    background-image: url(/media/amphitheater.jpg);
+    height: 753px;
+}
+#musicA {
+    display: none;
+    background-image: url(/media/music.jpg);
+    height: 753px;
+}
+#lakeA {
+    display: none;
+    background-image: url(/media/docks.jpg);
+    height: 753px;
+}
+#nuresA {
+    display: none;
+    background-image: url(/media/nurse.jpg);
+    height: 753px;
+}
+#libraryA {
+    display: none;
+    background-image: url(/media/library.jpg);
+    height: 753px;
+}
+#counselorA {
+    display: none;
+    background-image: url(/media/office.jpg);
+    height: 753px;
+}
+#cabinRoom {
+    display: none;
+    background-image: url(/media/room.jpg);
+    height: 753px;
+}
+#guestRoom {
+    display: none;
+    background-image: url(/media/bedroom.jpg);
+    height: 753px;
+}
+/* map positions */
+.diningH {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 540px;
+    top: 340px;
+}
+.diningH:hover {
+    cursor: default;
+    text-shadow: #fff 4px 0 10px;
+}
+.cabins {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 260px;
+    top: 50px;
+}
+.cabins:hover{
+    text-shadow: #fff 1px 0 10px;
+    cursor: default;
+}
+.field {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 700px;
+    top: 250px;
+}
+.field:hover{
+    text-shadow: #fff 1px 0 10px;
+    cursor: default;
+}
+.amphitheater {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 400px;
+    top: 280px;
+}
+.amphitheater:hover {
+    cursor: default;
+    text-shadow: #fff 1px 0 10px;
+}
+.musicR {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 370px;
+    bottom: 30px;
+}
+.musicR:hover{
+    text-shadow: #fff 1px 0 10px;
+    cursor: default;
+}
+.lake {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 360px;
+    bottom: 270px;
+}
+.lake:hover {
+    cursor: default;
+    text-shadow: #fff 1px 0 10px;   
+}
+.nures {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 550px;
+    bottom: 200px;
+}
+.nures:hover {
+    cursor: default;
+    text-shadow: #fff 1px 0 10px;
+}
+.library {
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 480px;
+    bottom: 100px;
+}
+.library:hover{
+    text-shadow: #fff 1px 0 10px;
+    cursor: default;
+}
+#counselorO {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    position: absolute;
+    left: 490px;
+    top: 160px;
+}
+#counselorO:hover {
+    cursor: default;
+    text-shadow: #fff 1px 0 10px;
+}
