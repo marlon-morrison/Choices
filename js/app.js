@@ -214,14 +214,14 @@ function park() {
             };
         }
         let dataText = [
-            // "A peaceful park with little people around.",
-            // "You know I can always think here.",
-            // "It's strange seeing people who can smile in a place like this.",
-            // "My life is nothing but an endless cycle in this gray world.",
-            // "The world is a place full of corrupted ambition.",
-            // "Now of days I don't even know why I get up in the morning.",
-            // "Well, that's enough thinking for today what should I do next.",
-            // "Should I go home or stay here for a little longer maybe the bar is a good idea?"
+            "A peaceful park with little people around.",
+            "You know I can always think here.",
+            "It's strange seeing people who can smile in a place like this.",
+            "My life is nothing but an endless cycle in this gray world.",
+            "The world is a place full of corrupted ambition.",
+            "Now of days I don't even know why I get up in the morning.",
+            "Well, that's enough thinking for today what should I do next.",
+            "Should I go home or stay here for a little longer maybe the bar is a good idea?"
         ];
         choices[0].onclick = home;
         choices[1].onclick = stayPark;
@@ -230,10 +230,10 @@ function park() {
         function stayPark() {
             choiceDisplay[0].style.display = "none"
             dataText = [
-                // "Well, setting here is not that bad when you think about it.",
-                // "I can look up and stare at the stars to put my mind at ease.",
-                // "I'm just lost at how things turned out to be this way.",
-                // "I'll just set here until I'm ready...... to.... go..... hom....",
+                "Well, setting here is not that bad when you think about it.",
+                "I can look up and stare at the stars to put my mind at ease.",
+                "I'm just lost at how things turned out to be this way.",
+                "I'll just set here until I'm ready...... to.... go..... hom....",
                 ".............................."
             ];
             StartTextAnimation2(0);
@@ -350,17 +350,17 @@ function bus() {
         };
     }
     let dataText = [
-        // ".....*Noises*.......Wha...What the, where the hell an I.....*Looks Around*...",
-        // "On a bus,...why an i on a bus...*Looks outside* trees.",
-        // "*Walks outside bus*... A forest, why the hell i'm in a forest.",
-        // `OK ${names} think, think why are you here, how you got here and how to get home.`,
-        // "What did i do last night........",
-        // "Wait, why do i got a uniform on, WHAT IS GOING ON.",
-        // "*30 minutes of panic later*... I'm lost in the forest with nobody around.",
-        // "No way of communication, and the fact that I'm somehow in a school uniform.",
-        // "You know I could stay here and maybe somebody will find me.",
-        // "The woods don't look too dense maybe there's a road or highway nearby.",
-        // "Or take the gravel path to that sign over there what does that even say.",
+        ".....*Noises*.......Wha...What the, where the hell an I.....*Looks Around*...",
+        "On a bus,...why an i on a bus...*Looks outside* trees.",
+        "*Walks outside bus*... A forest, why the hell i'm in a forest.",
+        `OK ${names} think, think why are you here, how you got here and how to get home.`,
+        "What did i do last night........",
+        "Wait, why do i got a uniform on, WHAT IS GOING ON.",
+        "*30 minutes of panic later*... I'm lost in the forest with nobody around.",
+        "No way of communication, and the fact that I'm somehow in a school uniform.",
+        "You know I could stay here and maybe somebody will find me.",
+        "The woods don't look too dense maybe there's a road or highway nearby.",
+        "Or take the gravel path to that sign over there what does that even say.",
         "'WELCOME TO CAMP SENTAKUSHI'"
     ];
 
@@ -488,17 +488,17 @@ function gravel() {
         };
     };
     let dataText = [
-        // "Taking this trail seems like the safe way to go.",
-        // "Taking the woods would have been too dangerous for me.",
-        // "Then there's staying at the bus I'll be to board and probably fall asleep.",
-        // "You know this would be a nice trip if I wasn't stranded in the middle of nowhere.",
-        // "I hope there's people in this so-called Camp Sentakushi.",
-        // "I've been walking for a while now surly I'm close, starting to get tired.",
-        // "*Bear noise in the distance*",
-        // "Not tired anymore, ok lets keep moving.",
-        // "*Sees a building in the distance*",
-        // "Finally a sign of human life.",
-        // "*Sees small billboard with a map on it* Looks like a map of the area.",
+        "Taking this trail seems like the safe way to go.",
+        "Taking the woods would have been too dangerous for me.",
+        "Then there's staying at the bus I'll be to board and probably fall asleep.",
+        "You know this would be a nice trip if I wasn't stranded in the middle of nowhere.",
+        "I hope there's people in this so-called Camp Sentakushi.",
+        "I've been walking for a while now surly I'm close, starting to get tired.",
+        "*Bear noise in the distance*",
+        "Not tired anymore, ok lets keep moving.",
+        "*Sees a building in the distance*",
+        "Finally a sign of human life.",
+        "*Sees small billboard with a map on it* Looks like a map of the area.",
         "It's time to ask for some help on how and why im here."
     ];
 };
