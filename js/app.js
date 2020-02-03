@@ -216,9 +216,9 @@ function park() {
         let dataText = [
             "A peaceful park with little people around.",
             "You know I can always think here.",
-            "It's strange seeing people who can smile in a place like this.",
-            "My life is nothing but an endless cycle in this gray world.",
-            "The world is a place full of corrupted ambition.",
+            "It's strange seeing people who smile in a place like this.",
+            "My life is strange an endless cycle of pontless work.",
+            "This world is a place full of corrupted ambition.",
             "Now of days I don't even know why I get up in the morning.",
             "Well, that's enough thinking for today what should I do next.",
             "Should I go home or stay here for a little longer maybe the bar is a good idea?"
@@ -350,12 +350,12 @@ function bus() {
         };
     }
     let dataText = [
-        ".....*Noises*.......Wha...What the, where the hell an I.....*Looks Around*...",
-        "On a bus,...why an i on a bus...*Looks outside* trees.",
-        "*Walks outside bus*... A forest, why the hell i'm in a forest.",
+        ".....*Noises*.......Wha...What the, where am I.....*Looks Around*...",
+        "On a bus,...why am I on a bus...*Looks outside* trees.",
+        "*Walks outside bus*... A forest, why am I in a forest.",
         `OK ${names} think, think why are you here, how you got here and how to get home.`,
-        "What did i do last night........",
-        "Wait, why do i got a uniform on, WHAT IS GOING ON.",
+        "What did I do last night........",
+        "Wait, why do I have a uniform on, WHAT IS GOING ON.",
         "*30 minutes of panic later*... I'm lost in the forest with nobody around.",
         "No way of communication, and the fact that I'm somehow in a school uniform.",
         "You know I could stay here and maybe somebody will find me.",
@@ -602,7 +602,7 @@ mapLocation[1].onclick = function cabins() {
     t = 7;
     spkBox[t].innerText = names;;
     if (beenHereC == 1) {
-        v++;
+        v = 8;
                 
         text[t].innerHTML = "It's strange, why do I look like this?";
             
