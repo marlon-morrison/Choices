@@ -437,7 +437,7 @@ function woods() {
     choices[7].onclick = bears;
     function Fgravel() {
         choiceDisplay[2].style.display = "none"
-        woodsP.style.background = "url(/media/gravel-path.jpg)"
+        woodsP.style.background = "url(../media/gravel-path.jpg)"
         injury = "my ankle is sprain.";
         dataText = [
             "*As fast as your legs can run, you sprint full speed the other way of the bears.*",

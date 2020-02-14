@@ -131,7 +131,7 @@ from { width: 0; }
     left: 180px;
 }
 #start {
-    background-image: url(/media/title-screen.jpg); 
+    background-image: url(../media/title-screen.jpg); 
 }
 #nameSel {
     position: absolute;
@@ -141,37 +141,37 @@ from { width: 0; }
 }
 #park {
     display:none;
-    background-image: url(/media/park.jpg);
+    background-image: url(../media/park.jpg);
     height: 753px;
 }
 #bedroom {
     display: none;
-    background-image: url(/media/bedroom.jpg);
+    background-image: url(../media/bedroom.jpg);
     height: 753px;
 }
 #bar {
     display: none;
-    background-image: url(/media/bar.jpg);
+    background-image: url(../media/bar.jpg);
     height: 753px;
 }
 #bus {
     display: none;
-    background-image: url(/media/bus.jpg);
+    background-image: url(../media/bus.jpg);
     height: 753px;
 }
 #woods {
     display: none;
-    background-image: url(/media/woods.jpg);
+    background-image: url(../media/woods.jpg);
     height: 753px;
 }
 #gravel {
     display: none;
-    background-image: url(/media/gravel-path.jpg);
+    background-image: url(../media/gravel-path.jpg);
     height: 753px;
 }
 #map {
     display: none;
-    background-image: url(/media/transp-map.jpg);
+    background-image: url(../media/transp-map.jpg);
     height: 753px;
 }
 .map {
@@ -185,57 +185,57 @@ from { width: 0; }
 }
 #diningA {
     display: none;
-    background-image: url(/media/dining.jpg);
+    background-image: url(../media/dining.jpg);
     height: 753px;
 }
 #cabinA {
     display: none;
-    background-image: url(/media/cabins.jpg);
+    background-image: url(../media/cabins.jpg);
     height: 753px;
 }
 #fieldA {
     display: none;
-    background-image: url(/media/field.jpg);
+    background-image: url(../media/field.jpg);
     height: 753px;
 }
 #amphitheaterA {
     display: none;
-    background-image: url(/media/amphitheater.jpg);
+    background-image: url(../media/amphitheater.jpg);
     height: 753px;
 }
 #musicA {
     display: none;
-    background-image: url(/media/music.jpg);
+    background-image: url(../media/music.jpg);
     height: 753px;
 }
 #lakeA {
     display: none;
-    background-image: url(/media/docks.jpg);
+    background-image: url(../media/docks.jpg);
     height: 753px;
 }
 #nuresA {
     display: none;
-    background-image: url(/media/nurse.jpg);
+    background-image: url(../media/nurse.jpg);
     height: 753px;
 }
 #libraryA {
     display: none;
-    background-image: url(/media/library.jpg);
+    background-image: url(../media/library.jpg);
     height: 753px;
 }
 #counselorA {
     display: none;
-    background-image: url(/media/office.jpg);
+    background-image: url(../media/office.jpg);
     height: 753px;
 }
 #cabinRoom {
     display: none;
-    background-image: url(/media/room.jpg);
+    background-image: url(../media/room.jpg);
     height: 753px;
 }
 #guestRoom {
     display: none;
-    background-image: url(/media/bedroom.jpg);
+    background-image: url(../media/bedroom.jpg);
     height: 753px;
 }
 /* map positions */
