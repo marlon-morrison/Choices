@@ -152,7 +152,7 @@ function typeWriter(text, i, fnCallback) {
         texts[t].innerHTML = text.substring(0, i+1);
         setTimeout(function() {
             typeWriter(text, i + 1, fnCallback)
-        }, 1);
+        }, 130);
     } else if (typeof fnCallback == 'function') {
         setTimeout(fnCallback, 700);
     }
