@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    position: relative;
 }
 #title {
     position: absolute;
@@ -65,6 +66,7 @@ button {
     font-size: 24px;
     margin: 0 auto;
     overflow: hidden;
+    text-align: left;
     white-space: nowrap; 
     letter-spacing: .10em;
     animation: typing 3.5s steps(40, end);
@@ -78,7 +80,7 @@ button {
 }
 .pChoices {
     font-size: 20px;
-    margin-top: 520px;
+    margin-top: 113px;
     margin-left: 176px;
     padding: 10px 30px;
     border: 2px solid #fff;
@@ -87,7 +89,7 @@ button {
 @media (max-width: 1290px) {
     .pChoices {
         font-size: 20px;
-        margin-top: 250px;
+        margin-top: 113px;
         margin-left: 85px;
         padding: 10px 30px;
         border: 2px solid #fff;
@@ -136,6 +138,55 @@ button {
     position: absolute;
     left: 45%;
     top: 30%;
+}
+#textlog{
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    border-radius: 0.5rem;
+    font: 1em monospace;
+    font-size: large;
+    overflow: auto;
+    height: 50%;
+    width: 50%;
+    z-index: 1;
+    transition: all 2s ease-out;
+    border: 4px solid #fff;
+    display: none;
+    padding: 0 25px;
+    top: -44%;
+    
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+#textlog:hover {
+    top: 0;
+    transition: all 1s ease-out;
+    text-decoration: none;
+}
+#textlog #yellow{
+    color: yellow;
+}
+#textlog #silver{
+    color: rgb(136, 135, 135);
+}
+#textlog #brown{
+    color: brown;
+}
+#textlog #green{
+    color: green;
+}
+#textlog #purple{
+    color: purple;
+}
+#textlog #red{
+    color: red;
+}
+#textlog #gray{
+    color: rgb(67, 61, 61);
+}
+#textlog #blue{
+    color: cadetblue;
 }
 @keyframes type{ 
 from { width: 0; } 

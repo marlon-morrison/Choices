@@ -105,6 +105,7 @@ let mapLocation = document.querySelectorAll("#mapLocation");
 let returnToMap = document.querySelectorAll(".map");
 let spkBox = document.querySelectorAll("#person");
 let barL = document.getElementById("progressBar");
+let textlog = document.getElementById("textlog");
 let finish = false;
 let names = "";
 let injury = "";
@@ -123,34 +124,35 @@ let convIndex = 0;
 let bear = true;
 let disp;
 let display;
+let tData = [];
 let height = window.innerHeight;
 let parkAud = new Audio('media/dark-forest(chosic.com).mp3');
 let bedroomAud = new Audio('media/bedroom-Komiku_Resolution(chosic.com).mp3');
 let barAud = new Audio('media/bar.mp3');
 let busAud = new Audio('media/bus-stop_The_Bards_Tale(chosic.com).mp3');
 let woodsAud = new Audio('media/woods-Komiku_The_Wind(chosic.com).mp3');
+let gravelAud = new Audio('media/gravelAud_in-the-forest-ambient-acoustic-guitar-instrumental-background-music-for-videos-5718.mp3');
 let mapAud = new Audio('media/map_春のテーマ-Spring-field-(chosic.com).mp3');
-let musicAud = new Audio('media/musicroom_Daniel_Veesey_(chosic.com).mp3');
 let cabinsAud = new Audio('media/John-Bartmann-A-Kwela-Fella(chosic.com).mp3');
-let libraryAud = new Audio('media/library-Aaron_Dunn_-_Goldberg_Variation-Aria(chosic.com).mp3');
+let fieldsAud = new Audio('media/fieldsaud_happy-whistling-ukulele-115485.mp3');
+let amphitheaterAud = new Audio('media/amphitheateraud_set-176805.mp3');
+let musicAud = new Audio('media/musicroom_Daniel_Veesey_(chosic.com).mp3');
 let lakeAud = new Audio('media/lake-Komiku_Sunset_on_the_beach(chosic.com).mp3');
+let nuresAud = new Audio('media/nuresAud_black_box-153858.mp3');
+let libraryAud = new Audio('media/library-Aaron_Dunn_-_Goldberg_Variation-Aria(chosic.com).mp3');
+let counselorAud = new Audio('media/counselorAud_desolate-world-121196.mp3');
 let cabinRoomAud = new Audio('media/cabinroom-Komiku_When_you_see_that_you_were_subject_of_experiment(chosic.com).mp3');
-// let audio = new Audio('media/.mp3');
-// let audio = new Audio('media/.mp3');
-// let audio = new Audio('media/.mp3');
-// let audio = new Audio('media/.mp3');
-// let audio = new Audio('media/.mp3');
-// let audio = new Audio('media/.mp3');
-// let audio = new Audio('media/.mp3');
-// let audio = new Audio('media/.mp3');
+let guestroomAud = new Audio('media/guestroomAud_Loyalty_Freak_Music_-_06_-_People_are_spinning(chosic.com).mp3');
+let gameoverAud = new Audio('media/kl-peach-game-over-ii-135684.mp3');
+let snakeSou = new Audio('media/snake-hissing-6092.mp3');
 // Type write effect
 function typeWriter(text, i, fnCallback) {
     let texts = document.querySelectorAll("#text");
     if (i < (text.length)) {
-    texts[t].innerHTML = text.substring(0, i+1);
-    setTimeout(function() {
-        typeWriter(text, i + 1, fnCallback)
-    }, 130);
+        texts[t].innerHTML = text.substring(0, i+1);
+        setTimeout(function() {
+            typeWriter(text, i + 1, fnCallback)
+        }, 1);
     } else if (typeof fnCallback == 'function') {
         setTimeout(fnCallback, 700);
     }
@@ -212,7 +214,7 @@ function park() {
         parkAud.play();
         let nextDis = next[t];
 
-        text[t].innerHTML = "You know some things never change here."
+        text[t].innerHTML = "You know, things in this world change faster then we tend to think."
 
         next[t].addEventListener("click",function () {
             nextDis.style.display = "none"
@@ -221,9 +223,17 @@ function park() {
         function StartTextAnimation(i) {
             if (dataText[i] == undefined ) {
                 choiceDisplay[0].style.display = "block"
+                textlog.style.display = "block";
+                tData.forEach(function(el) {
+                    let para = document.createElement("p");
+                    para.className = "finalBlock";
+                    para.innerHTML = names + ":" + el;
+                    textlog.appendChild(para);
+                });
                 parkAud.play();
             }
             if (i < dataText[i].length) {
+                tData.push(dataText[i]);
                 typeWriter(dataText[i], 0, function(){
                     StartTextAnimation(i + 1);
                 });
@@ -234,32 +244,37 @@ function park() {
             bus()
             };
             if (i < dataText[i].length) {
+                tData.push(dataText[i]);
                 typeWriter(dataText[i], 0, function(){
                     StartTextAnimation2(i + 1);
                 });
             };
         }
         let dataText = [
-            "A peaceful park with little people around.       ",
-            "You know I can always think here.      ",
-            "It's strange seeing people who smile in a place like this.    ",
-            "My life is strange an endless cycle of pontless work.        ",
-            "This world is a place full of corrupted ambition.           ",
-            "Now of days I don't even know why I get up in the morning.     ",
+            "This peaceful park for example, with little people coming around out at night.       ",
+            "You can see all of the city up here on this bench.       ",
+            "Watching a city grow and change over night.  ",
+            "It's strange that I'm not smiling, I would always come here to celabreate.    ",
+            "I thought finally being free of this endless cycle of pontless work would make me happy?        ",
+            "But in the end, I just fell lost, sad this world is filled with corrupted people.           ",
+            "My coworkers framed me so they can save there friend.     ",
+            "Heh, I came in, early in the morning, everyday for that company just for shit to change like that.     ",
             "Well, that's enough thinking for today what should I do next.      ",
-            "Should I go home or stay here for a little longer maybe the bar is a good idea?     "
+            "Should I go home or stay here for a little longer? Maybe the bar is a good idea?     "
         ];
         choices[0].onclick = home;
         choices[1].onclick = stayPark;
         choices[2].onclick = bar;
 
         function stayPark() {
+            textlog.style.display = "none";
+            tData = [];
             choiceDisplay[0].style.display = "none"
             dataText = [
-                "Well, setting here is not that bad when you think about it.      ",
+                "Well, sitting here doesen't seem too bad when you think about it.      ",
                 "I can look up and stare at the stars to put my mind at ease.      ",
                 "I'm just lost at how things turned out to be this way.",
-                "I'll just set here until I'm ready...... to.... go..... hom....        ",
+                "I'll just set here until I'm ready...... to.... go..... hom....              ",
                 "..............................        "
             ];
             StartTextAnimation2(0);
@@ -269,6 +284,8 @@ function park() {
 };
 // Home
 function home() {
+    textlog.style.display = "none";
+    tData = [];
     parkP.style.display = "none"
     parkAud.pause();
     bedroomP.style.display = "block";
@@ -297,6 +314,7 @@ function home() {
             bus()
           };
         if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation(i + 1);
             });
@@ -305,6 +323,8 @@ function home() {
 };
 // Bar
 function bar() {
+    textlog.style.display = "none";
+    tData = [];
     parkP.style.display = "none";
     parkAud.pause();
     barP.style.display = "block";
@@ -338,6 +358,7 @@ function bar() {
             bus();
           };
         if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation(i + 1);
             });
@@ -369,8 +390,16 @@ function bus() {
         // console.log(dataText[i]);
         if (dataText[i] == undefined ) {
             choiceDisplay[1].style.display = "block"
+            textlog.style.display = "block";
+            tData.forEach(function(el) {
+                let para = document.createElement("p");
+                para.className = "finalBlock";
+                para.innerHTML = names + ":" + el;
+                textlog.appendChild(para);
+            });
         }
         if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation(i + 1);
             });
@@ -381,9 +410,13 @@ function bus() {
           death();
         };
         if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation2(i + 1);
             });
+            if (i = 4) {
+                snakeSou.play();
+            }
         };
     }
     let dataText = [
@@ -406,6 +439,8 @@ function bus() {
     choices[5].onclick = gravel;
 
     function staybus() {
+        tData = [];
+        
         choiceDisplay[1].style.display = "none"
         dataText = [
             "You know staying at the bus is not all that bad.              ",
@@ -422,6 +457,8 @@ function bus() {
 };
 // Woods
 function woods() {
+    textlog.style.display = "none";
+    tData = [];
     busP.style.display = "none"
     busAud.pause();
     woodsP.style.display = "block";
@@ -440,8 +477,16 @@ function woods() {
     function StartTextAnimation(i) {
         if (dataText[i] == undefined ) {
             choiceDisplay[2].style.display = "block"
+            textlog.style.display = "block";
+            tData.forEach(function(el) {
+                let para = document.createElement("p");
+                para.className = "finalBlock";
+                para.innerHTML = names + ":" + el;
+                textlog.appendChild(para);
+            });
           };
           if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation(i + 1);
             });
@@ -452,6 +497,7 @@ function woods() {
             map();
         };
         if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation2(i + 1);
             });
@@ -459,6 +505,7 @@ function woods() {
     };
     function StartTextAnimation3(i) {
         if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation2(i + 1);
             });
@@ -476,6 +523,8 @@ function woods() {
     choices[6].onclick = Fgravel;
     choices[7].onclick = bears;
     function Fgravel() {
+        textlog.style.display = "none";
+        tData = [];
         choiceDisplay[2].style.display = "none"
         woodsP.style.background = "url(../media/gravel-path.jpg)"
         injury = "my ankle is sprain.";
@@ -504,10 +553,12 @@ function woods() {
 }
 // Gravel path
 function gravel() {
+    textlog.style.display = "none";
+    tData = [];
     busP.style.display = "none"
     busAud.pause();
     gravelP.style.display = "block";
-
+    gravelAud.play();
     gravelP.style.height = height.toString() + "px";
     t = 5;
     let nextDis = next[t];
@@ -522,9 +573,16 @@ function gravel() {
     function StartTextAnimation(i) {
         if (dataText[i] == undefined ) {
             injury = "im fine for right now."
+            tData.forEach(function(el) {
+                let para = document.createElement("p");
+                para.className = "finalBlock";
+                para.innerHTML = names + ":" + el;
+                textlog.appendChild(para);
+            });
             map()
         };
         if (i < dataText[i].length) {
+            tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation(i + 1);
             });
@@ -548,20 +606,27 @@ function gravel() {
 // Map
 function map() {
     diningP.style.display = "none"
+    barAud.pause();
     cabinsP.style.display = "none"
     cabinsAud.pause();
     fieldP.style.display = "none"
+    fieldsAud.pause();
     amphitheaterP.style.display = "none"
+    amphitheaterAud.pause();
     musicP.style.display = "none"
     musicAud.pause();
     lakeP.style.display = "none"
     lakeAud.pause();
     nuresP.style.display = "none"
+    nuresAud.pause();
     libraryP.style.display = "none"
     libraryAud.pause();
     counselorP.style.display = "none"
+    counselorAud.pause();
     woodsP.style.display = "none";
     gravelP.style.display = "none";
+    gravelAud.pause();
+    textlog.style.display = "block";
     display = mapP
     progressBar();
     mapAud.play();
@@ -572,10 +637,12 @@ function map() {
 }
 // Dining hall
 mapLocation[0].onclick = function diningH() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none"
     diningP.style.display = "block";
-
     mapAud.pause();
+    barAud.play();
     diningP.style.height = height.toString() + "px";
     t = 6;
     spkBox[t].innerText = names;
@@ -613,6 +680,7 @@ mapLocation[0].onclick = function diningH() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
@@ -623,8 +691,23 @@ mapLocation[0].onclick = function diningH() {
                 };
                 if (conversations[index]["sp"] == "Saria") {
                     spkBox[t].style.color = "yellow"
+                    tData.forEach(function(el) {
+                        let para = document.createElement("p");
+                        para.id = "yellow";
+                        para.innerHTML = conversations[index]["sp"] + ":" + el;
+                        textlog.appendChild(para);
+                    });
+                    tData = [];
                 } else {
                     spkBox[t].style.color = "#fff"
+                    tData.forEach(function(el) {
+                        let para = document.createElement("p");
+                        para.id = "white";
+                        para.innerHTML = conversations[index]["sp"] + ":" + el;
+                        textlog.appendChild(para);
+                    });
+                    tData = [];
+
                 }
             };
         };
@@ -647,6 +730,8 @@ mapLocation[0].onclick = function diningH() {
 };
 // Cabins
 mapLocation[1].onclick = function cabins() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none"
     cabinsP.style.display = "block";
     mapAud.pause();
@@ -656,7 +741,7 @@ mapLocation[1].onclick = function cabins() {
     t = 7;
     spkBox[t].innerText = names;;
     if (beenHereC == 1) {
-        v = 8;
+        v = 8; 
                 
         text[t].innerHTML = "It's strange, why do I look like this?";
             
@@ -692,13 +777,28 @@ mapLocation[1].onclick = function cabins() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
                     if (conversations[index]["sp"] == "Marquez") {
                         spkBox[t].style.color = "cadetblue";
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "blue";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     } else {
                         spkBox[t].style.color = "#fff";
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "white";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     }
                 } else {
                     map();
@@ -724,10 +824,12 @@ mapLocation[1].onclick = function cabins() {
 };
 // Field area
 mapLocation[2].onclick = function fieldA() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none"
     fieldP.style.display = "block"
     mapAud.pause();
-
+    fieldsAud.play();
     fieldP.style.height = height.toString() + "px";
     t = 8;
     returnToMap[2].onclick = map;
@@ -768,13 +870,28 @@ mapLocation[2].onclick = function fieldA() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
                     if (conversations[index]["sp"] == "Mike") {
                         spkBox[t].style.color = "grey"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "gray";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     } else {
                         spkBox[t].style.color = "#fff"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "white";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     }
                 } else {
                     map();
@@ -800,10 +917,12 @@ mapLocation[2].onclick = function fieldA() {
 };
 // Amphitheater
 mapLocation[3].onclick = function amphitheater() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none"
     amphitheaterP.style.display = "block"
     mapAud.pause();
-
+    amphitheaterAud.play();
     amphitheaterP.style.height = height.toString() + "px";
     t = 9;
     spkBox[t].innerText = names;;
@@ -844,13 +963,28 @@ mapLocation[3].onclick = function amphitheater() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
                     if (conversations[index]["sp"] == "Maria") {
                         spkBox[t].style.color = "red"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "red";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     } else {
                         spkBox[t].style.color = "#fff"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "white";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     }
                 } else {
                     map();
@@ -876,6 +1010,8 @@ mapLocation[3].onclick = function amphitheater() {
 };
 // Music room
 mapLocation[4].onclick = function musicR() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none"
     musicP.style.display = "block"
     mapAud.pause();
@@ -916,13 +1052,28 @@ mapLocation[4].onclick = function musicR() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
                     if (conversations[index]["sp"] == "Fiona") {
                         spkBox[t].style.color = "silver"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "silver";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     } else {
                         spkBox[t].style.color = "#fff"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "white";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     }
                 } else {
                     map();
@@ -948,6 +1099,8 @@ mapLocation[4].onclick = function musicR() {
 }
 // Lake
 mapLocation[5].onclick = function lake() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none"
     lakeP.style.display = "block"
     mapAud.pause();
@@ -987,9 +1140,17 @@ mapLocation[5].onclick = function lake() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
+                    tData.forEach(function(el) {
+                        let para = document.createElement("p");
+                        para.id = "white";
+                        para.innerHTML = conversations[index]["sp"] + ":" + el;
+                        textlog.appendChild(para);
+                    });
+                    tData = [];
                 } else {
                     map()
                     index = -1
@@ -1014,10 +1175,12 @@ mapLocation[5].onclick = function lake() {
 }
 // Nures
 mapLocation[6].onclick = function nures() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none";
     nuresP.style.display = "block";
     mapAud.pause();
-
+    nuresAud.play();
     nuresP.style.height = height.toString() + "px";
     t = 12;
     spkBox[t].innerText = names;
@@ -1056,13 +1219,28 @@ mapLocation[6].onclick = function nures() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
                     if (conversations[index]["sp"] == "Ms.Windy") {
                         spkBox[t].style.color = "purple"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "purple";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     } else {
                         spkBox[t].style.color = "#fff"
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "white";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     }
                 } else {
                     map();
@@ -1088,6 +1266,8 @@ mapLocation[6].onclick = function nures() {
 }
 // library
 mapLocation[7].onclick = function library() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none";
     libraryP.style.display = "block";
     mapAud.pause();
@@ -1131,13 +1311,28 @@ mapLocation[7].onclick = function library() {
                     index+=1;
                     convIndex = 0;
                     nConv = conversations[index]["con"].split('');
+                    tData.push(conversations[index]["con"]);
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
-                    if (conversations[index]["sp"] == "Yuki") {
+                    if (conversations[index]["sp"] == "hanna") {
                         spkBox[t].style.color = "green";
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "green";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     } else {
                         spkBox[t].style.color = "#fff";
+                        tData.forEach(function(el) {
+                            let para = document.createElement("p");
+                            para.id = "white";
+                            para.innerHTML = conversations[index]["sp"] + ":" + el;
+                            textlog.appendChild(para);
+                        });
+                        tData = [];
                     };
                 } else {
                     map();
@@ -1163,10 +1358,12 @@ mapLocation[7].onclick = function library() {
 }
 // counselor office
 function counselorO() {
+    textlog.style.display = "none";
+    tData = [];
     mapP.style.display = "none";
     counselorP.style.display = "block";
     mapAud.pause();
-
+    counselorAud.play();
     counselorP.style.height = height.toString() + "px";
     v++;
     t = 14;
@@ -1202,18 +1399,34 @@ function counselorO() {
                 index+=1;
                 convIndex = 0;
                 nConv = conversations[index]["con"].split('');
+                tData.push(conversations[index]["con"]);
                 createIntervals();
                 text[t].innerHTML = "";
                 spkBox[t].innerHTML = conversations[index]["sp"];
                 if (conversations[index]["sp"] == "Dean") {
                     spkBox[t].style.color = "brown"
+                    tData.forEach(function(el) {
+                        let para = document.createElement("p");
+                        para.id = "brown";
+                        para.innerHTML = conversations[index]["sp"] + ":" + el;
+                        textlog.appendChild(para);
+                    });
+                    tData = [];
                 } else {
                     spkBox[t].style.color = "#fff"
+                    tData.forEach(function(el) {
+                        let para = document.createElement("p");
+                        para.id = "white";
+                        para.innerHTML = conversations[index]["sp"] + ":" + el;
+                        textlog.appendChild(para);
+                    });
+                    tData = [];
                 }
             } else {
                 console.log(choiceDisplay[11]);
                 
                 choiceDisplay[11].style.display = "block"
+                textlog.style.display = "block";
                 choices[32].onclick = cabinRoom;
                 choices[33].onclick = guestRoom;
                 index = -1
@@ -1233,6 +1446,8 @@ function counselorO() {
 };
 // Cabin Room
 function cabinRoom() {
+    textlog.style.display = "none";
+    tData = [];
     counselorP.style.display = "none";
     cabinRoomP.style.display = "block";
     mapAud.pause();
@@ -1263,9 +1478,17 @@ function cabinRoom() {
                 index+=1;
                 convIndex = 0;
                 nConv = conversations[index]["con"].split('');
+                tData.push(conversations[index]["con"]);
                 createIntervals();
                 text[t].innerHTML = "";
                 spkBox[t].innerHTML = conversations[index]["sp"];
+                tData.forEach(function(el) {
+                    let para = document.createElement("p");
+                    para.id = "white";
+                    para.innerHTML = conversations[index]["sp"] + ":" + el;
+                    textlog.appendChild(para);
+                });
+                tData = [];
             } else {
                 Fin();
                 index = -1
@@ -1288,7 +1511,7 @@ function guestRoom() {
     counselorP.style.display = "none";
     guestRoomP.style.display = "block";
     mapAud.pause();
-
+    guestroomAud.play();
     guestRoomP.style.height = height.toString() + "px";
     v++;
     t = 16;
@@ -1317,9 +1540,17 @@ function guestRoom() {
                 index+=1;
                 convIndex = 0;
                 nConv = conversations[index]["con"].split('');
+                tData.push(conversations[index]["con"]);
                 createIntervals();
                 text[t].innerHTML = "";
                 spkBox[t].innerHTML = conversations[index]["sp"];
+                tData.forEach(function(el) {
+                    let para = document.createElement("p");
+                    para.id = "white";
+                    para.innerHTML = conversations[index]["sp"] + ":" + el;
+                    textlog.appendChild(para);
+                });
+                tData = [];
             } else {
                 Fin();
                 index = -1
@@ -1339,6 +1570,7 @@ function guestRoom() {
 };
 // Game over
 function death() {
+    gameoverAud.play();
     busP.style.display = "none"
     gameHud.style.display = "block"
     ele4.setAttribute("id","name");
@@ -1355,6 +1587,7 @@ function death() {
 };
 // End
 function Fin() {
+    textlog.style.display = "block";
     cabinRoomP.style.display = "none"
     guestRoomP.style.display = "none"
     title.style.display = "none"
@@ -1367,5 +1600,8 @@ function Fin() {
 }
 // restart
 function restart() {
+    textlog.style.display = "none";
+    tData = [];
+    textlog.innerHTML = tData;
     window.location.reload();
 };
