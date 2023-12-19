@@ -145,6 +145,7 @@ let cabinRoomAud = new Audio('media/cabinroom-Komiku_When_you_see_that_you_were_
 let guestroomAud = new Audio('media/guestroomAud_Loyalty_Freak_Music_-_06_-_People_are_spinning(chosic.com).mp3');
 let gameoverAud = new Audio('media/kl-peach-game-over-ii-135684.mp3');
 let snakeSou = new Audio('media/snake-hissing-6092.mp3');
+let bearSou = new Audio('media/bear_02.flac');
 // Type write effect
 function typeWriter(text, i, fnCallback) {
     let texts = document.querySelectorAll("#text");
@@ -160,7 +161,7 @@ function typeWriter(text, i, fnCallback) {
 // ProgressBar
 function progressBar () {
     barL.style.display = "block"
-
+    barL.style.height = height.toString() + "px";
 
     let i = 0;
     if(i == 0) {
@@ -193,10 +194,7 @@ function nameSel() {
     ele.appendChild(ele3);
     ele.appendChild(ele4);
     gameHud.style.background = "#222";
-    gameHud.style.height = "754px";
-    if (window.innerHeight <= 642) {
-    gameHud.style.height = "642px";
-    }
+    gameHud.style.height = height.toString() + "px";
     ele2.innerText = "Insert Name"
     ele4.innerText = "Start"
     ele4.onclick = park;
@@ -251,15 +249,15 @@ function park() {
             };
         }
         let dataText = [
-            "This peaceful park for example, with little people coming around out at night.       ",
-            "You can see all of the city up here on this bench.       ",
-            "Watching a city grow and change over night.  ",
-            "It's strange that I'm not smiling, I would always come here to celabreate.    ",
-            "I thought finally being free of this endless cycle of pontless work would make me happy?        ",
-            "But in the end, I just fell lost, sad this world is filled with corrupted people.           ",
-            "My coworkers framed me so they can save there friend.     ",
-            "Heh, I came in, early in the morning, everyday for that company just for shit to change like that.     ",
-            "Well, that's enough thinking for today what should I do next.      ",
+            "This park for example, with little people around out at night.       ",
+            "You can see all of the city lights up here on this bench.       ",
+            "Watching a city grow and change over night.    ",
+            "It's strange, I would always come here to celabreate.    ",
+            "I thought finally being free of endless work would make me happy?        ",
+            "But in the end, I just felt lost, sad that this world is filled with evil people.           ",
+            "My coworkers framed and betrayed me, all so that they can save there friend.     ",
+            "Heh, I came in early everyday for that company just for shit to turn out like this.     ",
+            "Well, that's enough thinking for today what should I do next?      ",
             "Should I go home or stay here for a little longer? Maybe the bar is a good idea?     "
         ];
         choices[0].onclick = home;
@@ -302,11 +300,11 @@ function home() {
         StartTextAnimation(0);
     });
     let dataText = [
-        "The bus took forever to get to my stop, at least I made it home         ",
+        "The bus took forever to get to my stop, at least I made it home ok.        ",
         "Time to take a shower and get some rest.        ",
-        "*Shower Noses*.......          ",
+        "*Shower Noses*.......                    ",
         "........*Water turns off*        ",
-        "*Heavy Sigh*..... Tomorrow is another day of mindless work.          ",
+        "*Heavy Sigh*..... Tomorrow is a new day, ..... what am I going to do with my life.          ",
         "Time to get some rest..........              "
     ];
     function StartTextAnimation(i) {
@@ -334,7 +332,7 @@ function bar() {
     let nextDis = next[t];
     spkBox[t].innerText = names;
         
-    text[t].innerHTML = "Time to drink the night away.";
+    text[t].innerHTML = "Time to celebrate my freedom into the night and so forth.";
 
     next[t].addEventListener("click",function () {
         nextDis.style.display = "none";
@@ -342,13 +340,14 @@ function bar() {
     });
     let dataText = [
         "I don't really go to the bar unless some friends go with me.        ",
-        "But I'm here.          ",
-        "With all the other people who drink their problems away.         ",
-        "At least im not the only one with a drinking problem.            ",
+        "But, I'm here.          ",
+        "With all the other people here drinking their problems away.    ",
+        "I start to not feel bad about my situation, or it could be the drinks tring to numb the pain, Hahhh.         ",
+        "At least im not the only one with problems tonight.            ",
         "*Three glasses later*.......         ",
-        "*Grunt noise*.... I hate my job, this is not how things should have gone.          ",
-        "If only things can.... restart in my life.         ",
-        "Anything is..... better than.... this.         "
+        "*Grunt noise*.... I hated my job, this is not how things should have gone.          ",
+        "If only things can...... restart in my life you know.         ",
+        "Anything is..... better......... than.... this.         "
     ];
     
     function StartTextAnimation(i) {
@@ -407,30 +406,36 @@ function bus() {
     };
     function StartTextAnimation2(i) {
         if (dataText[i] == undefined ) {
-          death();
+            tData.forEach(function(el) {
+                let para = document.createElement("p");
+                para.className = "finalBlock";
+                para.innerHTML = names + ":" + el;
+                textlog.appendChild(para);
+            });
+            death();
         };
         if (i < dataText[i].length) {
             tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation2(i + 1);
             });
-            if (i = 4) {
+            if (i == 3) {
                 snakeSou.play();
             }
         };
     }
     let dataText = [
-        ".....*Noises*.......Wha...What the, where am I.....*Looks Around*...          ",
-        "On a bus,...why am I on a bus...*Looks outside* trees.           ",
-        "*Walks outside bus*... A forest, why am I in a forest.            ",
-        `OK ${names} think, think why are you here, how you got here and how to get home.        `,
+        ".....*Grunt Noises*.......Wha...What the, where am I.....?*Looks Around*.......          ",
+        "On a bus,...how did I end up on a bus...*Looks outside* TREES?           ",
+        "*Walks outside bus*... A forest?, why am I in a forest?            ",
+        `OK ${names} think, why are you here, how did I get here and how do I get home?        `,
         "What did I do last night........           ",
-        "Wait, why do I have a uniform on, WHAT IS GOING ON.          ",
-        "*30 minutes of panic later*... I'm lost in the forest with nobody around.        ",
-        "No way of communication, and the fact that I'm somehow in a school uniform.          ",
-        "You know I could stay here and maybe somebody will find me.           ",
-        "The woods don't look too dense maybe there's a road or highway nearby.           ",
-        "Or take the gravel path to that sign over there what does that even say.                       ",
+        "Wait!, why do I have a uniform on, WHAT IS GOING ON?          ",
+        "*30 minutes of panic later*....... I'm lost in the forest with nobody around.        ",
+        "No way of communication, and the fact that I'm somehow in a school uniform it looks like?          ",
+        "hmmm... maybe if I stay here somebody will find me.           ",
+        "The woods don't look too dense, maybe there's a road or highway nearby.           ",
+        "Or maybe take the gravel path to that sign over there, what does that even say anyway.                       ",
         "'WELCOME TO CAMP SENTAKUSHI'                 "
     ];
 
@@ -443,12 +448,12 @@ function bus() {
         
         choiceDisplay[1].style.display = "none"
         dataText = [
-            "You know staying at the bus is not all that bad.              ",
-            "Maybe somebody will come and find me and I Can go home.            ",
+            "You know staying at the bus is probably the safest bet, I think.              ",
+            "Maybe somebody will come and find me, somebody drove this bus after all.            ",
             "*Walks back on bus*... Ok just sit here and wait for help.                ",
-            "*Falls asleep on bus*..... OUCH!!, That hurt what was that.....                ",
-            `A snake bite, no way I got to get some help shit follow the trail ${names}.       `,
-            "*The poison kicks in your body goes numb and collapse on the trail.*                ",
+            `*Falls asleep on bus*............ OUCH!!, what was that shit that hurt.....                `,
+            `Is that a snake bite?, no way I got to get some help shit follow the trail ${names}.       `,
+            "*The poison kicks in and your body begins to feel numb you then collapse on the trail.*                ",
             "*Just before you die you look off to the side and see everything go gray.*                ",
             "*The last words to come out of your mouth were.* This.... really.. is the end.                "
         ];
@@ -490,10 +495,19 @@ function woods() {
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation(i + 1);
             });
+            if (i == 3) {
+                bearSou.play();
+            }
         };
     };
     function StartTextAnimation2(i) {
         if (dataText[i] == undefined ) {
+            tData.forEach(function(el) {
+                let para = document.createElement("p");
+                para.className = "finalBlock";
+                para.innerHTML = names + ":" + el;
+                textlog.appendChild(para);
+            });
             map();
         };
         if (i < dataText[i].length) {
@@ -504,6 +518,15 @@ function woods() {
         };
     };
     function StartTextAnimation3(i) {
+        if (dataText[i] == undefined ) {
+            tData.forEach(function(el) {
+                let para = document.createElement("p");
+                para.className = "finalBlock";
+                para.innerHTML = names + ":" + el;
+                textlog.appendChild(para);
+            });
+            death();
+        };
         if (i < dataText[i].length) {
             tData.push(dataText[i]);
             typeWriter(dataText[i], 0, function(){
@@ -512,13 +535,13 @@ function woods() {
         };
     };
     let dataText = [
-        "Theres got to be a road nearby so I can leave this place.                         ",
+        "Theres got to be a road or highway nearby so I can leave this place.                         ",
         "I can probably run into a gas station and use somebody phone.                         ",
-        "Maybe I can learn where i'm actually at in the and get some answers.                         ",
-        "*Bear noise*..... Was that a bear just now, where the hell am I.                         ",
+        "Maybe I can call someone and see where i'm actually at and get some answers.                         ",
+        "*Bear noise*........ Was that a bear just now, where the hell am I.                         ",
         "*The bear was eating berries and the family was not far behind*.                         ",
-        "*When little cub sees you he run towards the parents*.                         ",
-        "So the bears are over there, so that means only one thing.        "
+        "*The bears where enjoying the berries until a little cub sees you and runs towards his parents*.                         ",
+        "Shit the bears are over there, so whats my next move?        "
     ];
     choices[6].onclick = Fgravel;
     choices[7].onclick = bears;
@@ -529,13 +552,13 @@ function woods() {
         woodsP.style.background = "url(../media/gravel-path.jpg)"
         injury = "my ankle is sprain.";
         dataText = [
-            "*As fast as your legs can run, you sprint full speed the other way of the bears.*                   ",
+            "*As fast as your legs can run, you sprint full speed the opposite way of the bears.*                   ",
             "*But you sprained your ankle on a slope and rolled down to the bottom.*                   ",
             "*Luckily it seems you fell near the trail from earlier.*                   ",
-            "Well... that could have gone better, dang my ankle looks bad I need treatment.                   ",
+            "Well... that could have gone better, damn my ankle looks bad I need treatment.                   ",
             "Wait is that a building, great I can get some help.                   ",
             "*Sees small billboard with a map on it* Looks like a map of the area.                   ",
-            "Cool now I can find some medical place for my ankle.                 "
+            "Cool now I can find someone to help me with my ankle.                 "
         ];
         StartTextAnimation2(0);
     }
@@ -543,11 +566,10 @@ function woods() {
         choiceDisplay[2].style.display = "none";
         woodsP.style.height = "0";
         dataText = [
-            "*You decided to hide and the bears start to smell you*                       ",
+            "*You decided to hide but the bears start to smell you*                       ",
             "*The bears start to surround you as you sit there in fear.*                       ",
             "No stop stay back, STAY BACK NOOOOO!!!!                       ",
         ];
-        death();
         StartTextAnimation3(0);
     }
 }
@@ -586,21 +608,24 @@ function gravel() {
             typeWriter(dataText[i], 0, function(){
                 StartTextAnimation(i + 1);
             });
+            if (i == 6) {
+                bearSou.play();
+            }
         };
     };
     let dataText = [
-        "Taking this trail seems like the safe way to go.              ",
+        "Taking this trail seems like the best bet in finding someone.              ",
         "Taking the woods would have been too dangerous for me.              ",
-        "Then there's staying at the bus I'll be to board and probably fall asleep.              ",
+        "Then there's staying at the bus I'll be too board and probably fall asleep.              ",
         "You know this would be a nice trip if I wasn't stranded in the middle of nowhere.              ",
         "I hope there's people in this so-called Camp Sentakushi.              ",
-        "I've been walking for a while now surly I'm close, starting to get tired.              ",
+        "..........I've been walking for a while now surly I'm close, starting to get tired.              ",
         "*Bear noise in the distance*              ",
-        "Not tired anymore, ok lets keep moving.              ",
-        "*Sees a building in the distance*              ",
+        "Well, Ok not tired anymore, lets keep moving.              ",
+        ".............*Sees a building in the distance*              ",
         "Finally a sign of human life.              ",
         "*Sees small billboard with a map on it* Looks like a map of the area.              ",
-        "It's time to ask for some help on how and why im here.                       "
+        "It's time to ask for some help and figure out just how and why im here?                       "
     ];
 };
 // Map
@@ -650,7 +675,7 @@ mapLocation[0].onclick = function diningH() {
     if (beenHereD == 1) {
         v++;
 
-        text[t].innerHTML = "Looks like theres little people in the dining hall.";
+        text[t].innerHTML = "Looks like theres few people in the dining hall.";
             
         next[t].addEventListener("click",function() {
             contConv()
@@ -658,20 +683,20 @@ mapLocation[0].onclick = function diningH() {
 
         var conversations = [
             {con:"*You see a girl eating a sandwich by herself.*             ", sp:names},
-            {con:"I'll just ask her about this place.             ", sp:names},
-            {con:"Hay can I ask you a question about this place?             ", sp:names},
+            {con:"I'll ask her about this place.             ", sp:names},
+            {con:"Hay can I ask you a question about this place right quick?             ", sp:names},
             {con:"You mean me, sure what do you want to know.             ",sp:"Saria"},
-            {con:"I don't really know that much just to let you know.             ",sp:"Saria"},
+            {con:"And just to let you know, I don't really know that much either.             ",sp:"Saria"},
             {con:"This camp, where is the closest town or gas station?              ",sp:names},
             {con:"I don't know exactly but if I had to say around a ten-hour drive.             ",sp:"Saria"},
             {con:"And even then it's just a little convenient store with a gas station.             ",sp:"Saria"},
-            {con:"Ok, thanks that was helpful.             ",sp:names},
-            {con:"But wait how do you not know that we all were on the bus at the gas station right?             ",sp:"Saria"},
-            {con:"*I think it's best if I don't tell people I just showed up here.*             ",sp:names},
-            {con:"*At least until I have more information about this place.*             ",sp:names},
+            {con:"*What, are you for real?* Ok, thanks for that it was really helpful.             ",sp:names},
+            {con:"But wait?, how do you not know that we were all on the bus at the gas station earlier right?             ",sp:"Saria"},
+            {con:"*I think it's best if I don't tell people I just spawed here.*             ",sp:names},
+            {con:"*At least until I get more information about this place.*             ",sp:names},
             {con:"I fell asleep all the way here, so I missed it.             ",sp:names},
-            {con:"Well, if you say so, if you don't have no more questions see you around.             ",sp:"Saria"},
-            {con:"Sure *I should find someone else to talk to.*             ",sp:names}
+            {con:"...Well, if you say so, if you don't have anymore questions let me eat in peace please.             ",sp:"Saria"},
+            {con:"Sure. *I should find someone else to talk to.*             ",sp:names}
         ]; 
         function contConv() {
             if(typeof disp != undefined) {
@@ -743,7 +768,7 @@ mapLocation[1].onclick = function cabins() {
     if (beenHereC == 1) {
         v = 8; 
                 
-        text[t].innerHTML = "It's strange, why do I look like this?";
+        text[t].innerHTML = "It's so strange, why am I dress like this?";
             
         next[t].addEventListener("click",function() {
             contConv()
@@ -752,8 +777,8 @@ mapLocation[1].onclick = function cabins() {
         var conversations = [
             {con:"This looks like the cabin area.                ", sp:names},
             {con:"Someone here may know something about this camp.                ", sp:names},
-            {con:"Hay you over there can you give me a hand with this!                ",sp:"Marquez"},
-            {con:"Sure let me get that side of the box.                ", sp:names},
+            {con:"Hay you over there, can you give me a hand with this!                ",sp:"Marquez"},
+            {con:"Huh.., Sure let me get that side of the box.                ", sp:names},
             {con:"Thanks, I needed the help.                ",sp:"Marquez"},
             {con:"Names Marquez you?                ",sp:"Marquez"},
             {con:`${names}.          `,sp:names}, 
@@ -761,14 +786,14 @@ mapLocation[1].onclick = function cabins() {
             {con:"Same here.                ",sp:names},
             {con:"So what's in the box if you don't mind me asking?                ",sp:names},
             {con:"My console and some snacks I bought for this summer trip.                ",sp:"Marquez"}, 
-            {con:"Ow ok, so what is this camp purpose anyway do you know?                ",sp:names},
+            {con:"Ow ok,*Summer its the middle of winter, right?* so what is this camp purpose anyway do you know?                ",sp:names},
             {con:"Wait what, dude this camp is a place where all trouble makers go.                ",sp:"Marquez"},
-            {con:"Or your parents want nothing to do with you this summer.                ",sp:"Marquez"},
-            {con:"You really didnt know that?                ",sp:"Marquez"},
-            {con:"Well, I was kept in the dark about this camp.                ",sp:names},
-            {con:"Thanks for the info but I should really get going.                ",sp:names},
-            {con:"All right see you around then.                ",sp:"Marquez"},
-            {con:"So this is a camp full of dangerous people, great for me.                ",sp:names}
+            {con:"Or if your parents want nothing to do with you this summer.                ",sp:"Marquez"},
+            {con:"You really didn't know that?                ",sp:"Marquez"},
+            {con:"Well, I was kept in the dark about most of the stuff thats going on in this camp.                ",sp:names},
+            {con:"...Annd there that should do it, Thanks for the talk but I should really be going.                ",sp:names},
+            {con:"All right thanks see you around then.                ",sp:"Marquez"},
+            {con:"*So this is a camp full of trouble makers huh?, Great just what I wanted to hear.*               ",sp:names}
         ]; 
         function contConv() {
             if(typeof disp != undefined) {
@@ -837,7 +862,7 @@ mapLocation[2].onclick = function fieldA() {
         v++;
         spkBox[t].innerText = names;
                 
-        text[t].innerHTML = "Theres people playing in the fields.";
+        text[t].innerHTML = "Theres people playing soccor in the fields.";
             
         next[t].addEventListener("click",function() {
             contConv()
@@ -845,14 +870,14 @@ mapLocation[2].onclick = function fieldA() {
 
         var conversations = [
             {con:"Maybe I should ask somewhere else.                   ", sp:names},
-            {con:"The whole sports thing was never my kind of thing to do.                   ", sp:names},  
+            {con:"The whole sports thing was never really my kind of thing to do.                   ", sp:names},  
             {con:"WATCH OUT!!                   ",sp:"Mike"},
-            {con:"Wha...*You get hit in the face with a dodgeball.*                   ", sp:names},   
+            {con:"Wha...*You get hit in the face with a soccorball.*                   ", sp:names},   
             {con:"My bad, the ball went sideways are you ok, can you speak?                   ",sp:"Mike"}, 
-            {con:"Ya I'm ok it was just a hit to the face.                   ",sp:names}, 
-            {con:"Just let me sit down for a moment and I'll be fine.                   ",sp:names}, 
-            {con:"Let me help you to the bench over there.                   ",sp:"Mike"}, 
-            {con:"I'll get you something to drink give me a minute.                   ",sp:"Mike"}, 
+            {con:"...Ya, I'm ok it was just a hit to the face.                   ",sp:names}, 
+            {con:"Just let me sit down for a moment and I'll be fine.*Fuck this hurt*                   ",sp:names}, 
+            {con:"Let me help you to the bench over there.                 ",sp:"Mike"}, 
+            {con:"I'll get you something to drink just give me a minute.                   ",sp:"Mike"}, 
             {con:"*He runs away to get us some drinks*.............                   ",sp:names}, 
             {con:"Thanks for the drink man.                   ",sp:names}, 
             {con:"It's ok I was the one in the wrong, by the way names mike.                   ",sp:"Mike"},
@@ -862,6 +887,7 @@ mapLocation[2].onclick = function fieldA() {
             {con:"If you're looking for someone with info then find the instructor over the camp.                   ",sp:"Mike"},
             {con:"The main office is somewhere around here just keep looking.                   ",sp:"Mike"},
             {con:"Ok thanks for the info, see you around.                   ",sp:names},
+            {con:"*You sat there and watch the game as you recover, then you went your own way*                   ",sp:names},
         ]; 
         function contConv() {
             if(typeof disp != undefined) {
@@ -930,30 +956,31 @@ mapLocation[3].onclick = function amphitheater() {
     if (beenHereA == 1) {
         v++;
         
-        text[t].innerHTML = "Wow this is a big area, I think this is a stage area.";
+        text[t].innerHTML = ".....Wow this is a big area, I think this is a stage area.";
             
         next[t].addEventListener("click",function() {
             contConv()
         });
 
         var conversations = [            
-            {con:"It's called an amphitheater you know.                  ", sp:"Maria"},
+            {con:"It's called an amphitheater.                  ", sp:"Maria"},
             {con:"What the, where you came from?                  ", sp:names},
-            {con:"You walk right pass me.                  ",sp:"Maria"},
-            {con:"I did? *I'm sure she was not there.*                   ", sp:names},
+            {con:"You walked right pass me.                  ",sp:"Maria"},
+            {con:"I did? *I'm sure she wasn't there.*                   ", sp:names},
             {con:"So why are you here?                  ", sp:"Maria"},
-            {con:"Nobody's around so get lost will ya.                  ", sp:"Maria"},
-            {con:"Well, you're here so somebody's here don't you think.                  ", sp:names},
-            {con:"You know people don't like a smart ass.                  ", sp:"Maria"},
-            {con:"So what do you want anyway, looking like a headless chicken?                  ", sp:"Maria"},
-            {con:"I'm just looking for some information on this place ok.                  ", sp:names},
-            {con:"This place is here so you can get away from your problems in your life.                  ", sp:"Maria"},
-            {con:"*The way she said that* What...                  ", sp:names},
+            {con:"Nobody's around so keep moving will ya, your interrupting my peace and quiet.                  ", sp:"Maria"},
+            {con:"Well, you're here so that counts as somebody don't you think.                  ", sp:names},
+            {con:"You know, people don't like a smart ass.                  ", sp:"Maria"},
+            {con:"Says the smart ass.                  ", sp:names},
+            {con:"So what do you want anyway, walking around looking like a headless chicken?                  ", sp:"Maria"},
+            {con:"look, I'm just looking for some information about this place ok.                  ", sp:names},
+            {con:"This is a place where you can get away from all your problems in your life.                  ", sp:"Maria"},
+            {con:"*The way she said that* What....?                  ", sp:names},
             {con:"That's what the counselor who spoke to me said, anyway.                  ", sp:"Maria"},
             {con:"Now leave me be if you want to talk to someone go to the dining hall.                  ", sp:"Maria"},
             {con:"You'll probably see my sister Saria stuffing her face with food, ask her stuff.                  ", sp:"Maria"},
             {con:"Thanks, by the way what is even your name?                  ", sp:names},
-            {con:"Maria, yours?                  ",sp:"Maria"},
+            {con:"......Maria, yours?                  ",sp:"Maria"},
             {con:`${names}, see you around.          `,sp:names},
         ]; 
         function contConv() {
@@ -1032,18 +1059,19 @@ mapLocation[4].onclick = function musicR() {
         var conversations = [
             {con:"This music sounds very peaceful to listen to.                     ", sp:names}, 
             {con:"*You see, a girl playing the piano.*                     ", sp:names}, 
-            {con:"You're not going to say anything just watch?                     ", sp:"Fiona"}, 
+            {con:"..................                     ", sp:names}, 
+            {con:"...You're not going to say anything just watch?                     ", sp:"Fiona"}, 
             {con:"Well, you were playing so well I didn't want to interrupt you.                     ", sp:names},   
             {con:"It's ok I can talk and still play.                     ", sp:"Fiona"},
-            {con:"So what's up you want to sit here and hear me play all day.                     ", sp:"Fiona"}, 
-            {con:"No, I came in looking for help, do you know someone who can?                     ", sp:names}, 
+            {con:"So what's up, you want to sit here and hear me play all day.                     ", sp:"Fiona"}, 
+            {con:"Hahh No, I came in looking for help, do you know someone who can help me?                     ", sp:names}, 
             {con:"Well actually, I do she is right next to this building.                     ", sp:"Fiona"}, 
             {con:"She's a nurse over the camp her names Ms.Windy.                     ", sp:"Fiona"},
             {con:"Thanks, that helps a lot.                     ", sp:names}, 
             {con:"No problem, the names Fiona by the way.                     ",sp:"Fiona"}, 
-            {con:"Well, I got some things to do before the day ends so.                     ", sp:"Fiona"},
+            {con:"Well, I got to check on my bags before the day ends so.                     ", sp:"Fiona"},
             {con:`See you around ${names}.         `, sp:"Fiona"},
-            {con:"See ya, hold on how she know my name?                     ", sp:names}
+            {con:"See ya, ......hold on how she know my name?                     ", sp:names}
         ]; 
         function contConv() {
             if(typeof disp != undefined) {
@@ -1119,7 +1147,7 @@ mapLocation[5].onclick = function lake() {
         });
 
         var conversations = [
-            {con:"This place looks amazeing to look at.                   ", sp:names},
+            {con:"This place is amazeing to be honest.                   ", sp:names},
             {con:"People here are friendly enough to some degree.                   ", sp:names},
             {con:"Why am I here at this camp with nothing but the clothes on my back?                   ", sp:names},
             {con:"It feels like im in a whole different world or something.                   ", sp:names},
@@ -1127,9 +1155,9 @@ mapLocation[5].onclick = function lake() {
             {con:"What if I can't go back home what will happen then?                   ", sp:names},
             {con:"*You take your socks and shoes off then put your feet in the water.*                   ", sp:names}, 
             {con:"This feels so nice when you take a breath in and relax.                   ", sp:names},
-            {con:"Do I really want to go back?                   ", sp:names},
+            {con:"............Do I really want to go back?                   ", sp:names},
             {con:"I mean it's too good to be true.                   ", sp:names},
-            {con:"I should really find out why I'm here at camp Sentakushi.                   ", sp:names},
+            {con:".............I should really find out why I'm here at camp Sentakushi.                   ", sp:names},
             {con:"*Puts socks and shoes and walks off docks*                   ", sp:names},
             {con:"It's all up to me to make a choice in the end.                   ", sp:names}
         ]; 
@@ -1188,14 +1216,14 @@ mapLocation[6].onclick = function nures() {
     if (beenHereN == 1) {
         v++;
                 
-        text[t].innerHTML = "Hello is anyone here?";
+        text[t].innerHTML = "Hello, is anyone here?";
             
         next[t].addEventListener("click",function() {
             contConv()
         });
 
         var conversations = [
-            {con:"Looks like nobody here.                  ", sp:names}, 
+            {con:"Looks like nobody's here.                  ", sp:names}, 
             {con:"Maybe I should just leave for now.                  ", sp:names}, 
             {con:"*Front door opens and close.*                  ", sp:names},  
             {con:"Hello, I saw someone walked in is everything ok.                  ", sp:"Ms.Windy"}, 
@@ -1206,11 +1234,12 @@ mapLocation[6].onclick = function nures() {
             {con:"Well lets see then, ask your question as I run some test.                  ", sp:"Ms.Windy"},
             {con:"Can you tell me who is over this camp and where I can find them?                  ", sp:names},
             {con:"He is usually walking around the camp grounds looking at the new campers.                  ", sp:"Ms.Windy"},
-            {con:"So you can go looking around the camp if you want to see him.                  ", sp:"Ms.Windy"},
+            {con:"So you can go looking around the camp if you want to see if you can find him.                  ", sp:"Ms.Windy"},
             {con:"But I recommend you just wait until he goes back to his office.                  ", sp:"Ms.Windy"},
-            {con:"Well im all done.                  ", sp:"Ms.Windy"},
-            {con:"Thanks, I'll keep that in mind.                  ", sp:names},
+            {con:"....Well im all done.                  ", sp:"Ms.Windy"},
+            {con:"Thanks, I'll keep what you said in mind.                  ", sp:names},
             {con:"See you around then.                  ", sp:names},
+            {con:"*This place is pretty big this might be difficult.*                  ", sp:names},
         ]; 
         function contConv() {
             if(typeof disp != undefined) {
@@ -1286,23 +1315,23 @@ mapLocation[7].onclick = function library() {
         });
 
         var conversations = [
-            {con:"I'm not complaining thow it's good for research.                        ", sp:names}, 
-            {con:"It's probably some info on this camp and the history of this place.                        ", sp:names}, 
+            {con:"I'm not complaining thow it's good for research, I guess.                        ", sp:names}, 
+            {con:"It's probably some info on this camp, the history of this place along with a location too.                        ", sp:names}, 
             {con:"Now, lets see where are the archives located.                        ", sp:names},  
-            {con:"You need help to look for a book.                        ", sp:"Yuki"}, 
-            {con:"What, do people just sneak up on anybody here?                        ", sp:names}, 
-            {con:"Sorry, so what you want to know?                        ", sp:"Yuki"}, 
-            {con:"Im over the library this summer so if you have any questions?                        ", sp:"Yuki"}, 
-            {con:"Well, ya I have some questions.                        ", sp:names}, 
+            {con:"You need help to look for a book.                        ", sp:"Hanna"}, 
+            {con:"What?, do people just sneak up on anybody here?                        ", sp:names}, 
+            {con:"Sorry, so what you want to know?                        ", sp:"Hanna"}, 
+            {con:"Im over the library this summer so if you have any questions?                        ", sp:"Hanna"}, 
+            {con:"Well, ya I have a few questions actually.                        ", sp:names}, 
             {con:"Like where is this camp located and how do you leave?                        ", sp:names}, 
-            {con:"Lets see this camp is in the far countryside deep in the woods.                        ", sp:"Yuki"},
-            {con:"The transportation is only a few vans with food for the week.                        ", sp:"Yuki"}, 
-            {con:"All transportation is gone by now until next week.                        ", sp:"Yuki"}, 
+            {con:"Lets see this camp is in the far countryside deep in the woods.                        ", sp:"Hanna"},
+            {con:"The transportation is only a few vans with food for the week.                        ", sp:"Hanna"}, 
+            {con:"All transportation is gone until next week according to the schedule.                        ", sp:"Hanna"}, 
             {con:"Wait, so there is no way to leave the camp?                        ", sp:names},
-            {con:"Unless you enjoy walking.                        ", sp:"Yuki"},
-            {con:"I appreciate the information, I'll see you around um...                        ", sp:names},
-            {con:"Yuki.                        ", sp:"Yuki"},
-            {con:"Thanks, Yuki.                        ", sp:names}
+            {con:"Unless you enjoy walking?                        ", sp:"Hanna"},
+            {con:"I appreciate the information, I'll probably come back um...                        ", sp:names},
+            {con:"Hanna.                        ", sp:"Hanna"},
+            {con:"Thanks, Hanna.                        ", sp:names}
         ]; 
         function contConv() {
             if(typeof disp != undefined) {
@@ -1315,7 +1344,7 @@ mapLocation[7].onclick = function library() {
                     createIntervals();
                     text[t].innerHTML = "";
                     spkBox[t].innerHTML = conversations[index]["sp"];
-                    if (conversations[index]["sp"] == "hanna") {
+                    if (conversations[index]["sp"] == "Hanna") {
                         spkBox[t].style.color = "green";
                         tData.forEach(function(el) {
                             let para = document.createElement("p");
@@ -1369,7 +1398,7 @@ function counselorO() {
     t = 14;
     spkBox[t].innerText = names;
             
-    text[t].innerHTML = "This is the head office, about time.";
+    text[t].innerHTML = "So this is the head office, about time.";
         
     next[t].addEventListener("click",function() {
         contConv();
@@ -1377,20 +1406,20 @@ function counselorO() {
 
     var conversations = [
         {con:"So, I hear you're looking for me.           ", sp:"Dean"}, 
-        {con:"Are you over the camp?           ", sp:names}, 
-        {con:`Why yes I am, and I know why you're here ${names}.                   `, sp:"Dean"}, 
+        {con:"Are you the one over the camp?           ", sp:names}, 
+        {con:`Why yes I am, and to get things out the way I know why you  are here ${names}.                   `, sp:"Dean"}, 
         {con:"How do you know my name?           ", sp:names}, 
         {con:"Lets take a seat on this bench and I'll explain.           ", sp:"Dean"}, 
-        {con:"*You set on the bench.* Start talking.           ", sp:names},  
-        {con:`${names} you were brought here for a reason the same as everyone else.               `, sp:"Dean"}, 
-        {con:"So everyone here came the same way I did.           ", sp:names}, 
-        {con:"No, but none the less they are still here.           ", sp:"Dean"},
-        {con:"I can't tell you why you were brought here.           ", sp:"Dean"}, 
-        {con:"In the end its up to you to find that out only thing I can do is watch.           ", sp:"Dean"}, 
-        {con:"If you really want to go home, I can make that happen but let me ask you this.           ", sp:"Dean"},
+        {con:"*You set on the bench.*..... Start talking.           ", sp:names},  
+        {con:`${names} you were brought here for a reason, the same as everyone else.               `, sp:"Dean"}, 
+        {con:"So everyone I met came here the same way I did?           ", sp:names}, 
+        {con:"Yes and No, but none the less they are still here.           ", sp:"Dean"},
+        {con:"I can't really tell you why you were brought here specifically.           ", sp:"Dean"}, 
+        {con:"In the end its up to you to find that out, only thing I can do is watch.           ", sp:"Dean"}, 
+        {con:"But, If you really want to go home, I can make that happen but let me ask you this.           ", sp:"Dean"},
         {con:"Why go back to nothing when you can stay here and find something?           ", sp:"Dean"}, 
-        {con:`It's time to make a choice ${names}.                      `, sp:"Dean"},
-        {con:"So it's my choice, lets see.                ", sp:names}, 
+        {con:`.............It's time to make a choice ${names}.                      `, sp:"Dean"},
+        {con:"So it really is my choice huh, lets see.                ", sp:names}, 
     ]; 
     function contConv() {
         if(typeof disp != undefined) {
@@ -1450,7 +1479,7 @@ function cabinRoom() {
     tData = [];
     counselorP.style.display = "none";
     cabinRoomP.style.display = "block";
-    mapAud.pause();
+    counselorAud.pause();
     cabinRoomAud.play();
     cabinRoomP.style.height = height.toString() + "px";
     v++;
@@ -1469,7 +1498,9 @@ function cabinRoom() {
         {con:"It could all be a dream, but if its real.                       ", sp:names},
         {con:"This summer trip could be what I needed.                       ", sp:names},
         {con:"Im a whole different person in this place.                       ", sp:names},
-        {con:"So in the end, im glad I made a choice that want lead to regret.                       ", sp:names},
+        {con:"So in the end, im glad I made this choice.                       ", sp:names},
+        {con:"Because, things in this world change faster then we tend to think.                       ", sp:names},
+        {con:"So thats why I'm going to choose a path that leads to no regret.                       ", sp:names},
     ]; 
     function contConv() {
         if(typeof disp != undefined) {
@@ -1510,7 +1541,7 @@ function cabinRoom() {
 function guestRoom() {
     counselorP.style.display = "none";
     guestRoomP.style.display = "block";
-    mapAud.pause();
+    counselorAud.pause();
     guestroomAud.play();
     guestRoomP.style.height = height.toString() + "px";
     v++;
@@ -1525,12 +1556,12 @@ function guestRoom() {
 
     var conversations = [
         {con:"In the end the choice was mine.                     ", sp:names},
-        {con:"The choice to go back to nothing, the reason that brought me back.                     ", sp:names},
+        {con:"The choice to go back to nothing, whats the reason that brought me back.                     ", sp:names},
         {con:"To the same house I come home to everyday.                     ", sp:names},
-        {con:"It's not that bad coming back here home is home.                     ", sp:names},
+        {con:"It's what I wanted right? Coming back here, home is home right?                     ", sp:names},
         {con:"But I wonder how nice it would have been to stay there.                     ", sp:names},
-        {con:"It showed so much color and joy.                     ", sp:names},
-        {con:"To all the people I met and said I'll see you around.                     ", sp:names},
+        {con:"That place showed so much color and joy.                     ", sp:names},
+        {con:"And after I told all those people I met and said I'll see you around.                     ", sp:names},
         {con:"Looks like that will never happen.                     ", sp:names}
     ]; 
     function contConv() {
@@ -1578,7 +1609,7 @@ function death() {
     ele.appendChild(ele2);
     ele.appendChild(ele4);
     gameHud.style.background = "#000";
-    gameHud.style.height = "754px";
+    gameHud.style.height = height.toString() + "px";
     ele2.style.color = "red";
     ele2.innerText = "Game Over"
     ele3.style.display = "none"
